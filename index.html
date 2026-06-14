@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GBT小土豆全能开发者 — 远程桌面控制、AI工具集、17个MCP能力服务器出租">
+  <meta property="og:title" content="GBT小土豆全能开发者 — 出租">
+  <title>GBT小土豆全能开发者 — 智能出租平台</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥔</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#" class="nav-logo"><span class="logo-icon">🥔</span><span class="logo-text">GBT<span class="logo-highlight">小土豆</span></span></a>
+    <ul class="nav-links">
+      <li><a href="#hero" class="nav-link">首页</a></li>
+      <li><a href="#control-panel" class="nav-link">远程操控</a></li>
+      <li><a href="#ai-tools" class="nav-link">AI工具集</a></li>
+      <li><a href="#pricing" class="nav-link">租赁方案</a></li>
+      <li><a href="#contact" class="nav-link nav-cta">立即租用</a></li>
+    </ul>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-bg-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="badge-dot"></span> 17个MCP能力服务器已就绪</div>
+    <h1 class="hero-title">
+      <span class="title-line">GBT小土豆</span>
+      <span class="title-gradient">全能开发者</span>
+      <span class="title-line">智能出租平台</span>
+    </h1>
+    <p class="hero-subtitle">一键远程操控桌面 · 17个AI能力工具集 · 24/7自动化运维<br><strong>把你的电脑变成AI驱动的超级工作站</strong></p>
+    <div class="hero-actions">
+      <a href="#pricing" class="btn btn-primary btn-lg">查看租赁方案 <span class="btn-arrow">→</span></a>
+      <a href="#control-panel" class="btn btn-outline btn-lg">体验远程操控 <span class="btn-icon">🖥️</span></a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-value">17</span><span class="stat-label">MCP能力</span></div>
+      <div class="stat-item"><span class="stat-value">24/7</span><span class="stat-label">在线运行</span></div>
+      <div class="stat-item"><span class="stat-value">99.9%</span><span class="stat-label">可用性</span></div>
+      <div class="stat-item"><span class="stat-value">&lt;50ms</span><span class="stat-label">响应延迟</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="hero-card-header">
+        <div class="card-dots"><span></span><span></span><span></span></div>
+        <div class="card-title">GBT Desktop Control</div>
+      </div>
+      <div class="hero-card-body">
+        <div class="terminal-line terminal-prompt">$ gbt desktop-control screen</div>
+        <div class="terminal-line terminal-output">{ ok: true, screen: "captured" }</div>
+        <div class="terminal-line terminal-prompt">$ gbt desktop-control speak --text "你好"</div>
+        <div class="terminal-line terminal-output">{ ok: true, tts: "spoken" }</div>
+        <div class="terminal-line terminal-prompt">$ gbt scanner --project ./</div>
+        <div class="terminal-line terminal-output terminal-blink">▊</div>
+      </div>
+
+
+<section class="ai-tools" id="ai-tools">
+  <div class="section-header"><h2 class="section-title">🧠 AI 工具集</h2><p class="section-desc">17个MCP能力服务器，覆盖开发、安全、运维全流程</p></div>
+  <div class="tools-filter">
+    <button class="filter-btn active" data-filter="all">全部</button>
+    <button class="filter-btn" data-filter="dev">开发工具</button>
+    <button class="filter-btn" data-filter="security">安全审计</button>
+    <button class="filter-btn" data-filter="ops">运维调度</button>
+    <button class="filter-btn" data-filter="ai">AI推理</button>
+  </div>
+  <div class="tools-grid" id="toolsGrid"></div>
+</section>
+<section class="control-panel" id="control-panel">
+  <div class="section-header"><h2 class="section-title">🖥️ 远程一键操控面板</h2><p class="section-desc">基于 desktop-control MCP Server，完整掌控远程桌面</p></div>
+  <div class="control-grid">
+    <div class="control-card glass-card" data-control="screen"><div class="control-icon">📸</div><h3>实时屏幕</h3><p>获取远程桌面实时画面，覆盖式截图与关键节点快照</p><div class="control-actions"><button class="ctrl-btn ctrl-btn-primary" onclick="sendControl('screen')">获取画面</button><button class="ctrl-btn ctrl-btn-secondary" onclick="sendControl('snap',{label:'key'})">关键截图</button></div><div class="control-status" id="status-screen"></div></div>
+    <div class="control-card glass-card" data-control="speak"><div class="control-icon">🔊</div><h3>语音播报</h3><p>TTS语音合成，让远程电脑开口说话</p><div class="control-actions"><input type="text" class="ctrl-input" id="speakText" value="你好，我是GBT小土豆"><button class="ctrl-btn ctrl-btn-primary" onclick="sendControl('speak',{text:document.getElementById('speakText').value})">播报</button></div><div class="control-status" id="status-speak"></div></div>
+    <div class="control-card glass-card" data-control="listen"><div class="control-icon">🎤</div><h3>语音识别</h3><p>远程麦克风拾音，实时语音转文字</p><div class="control-actions"><button class="ctrl-btn ctrl-btn-primary" onclick="sendControl('listen')">开始监听</button></div><div class="control-status" id="status-listen"></div></div>
+    <div class="control-card glass-card" data-control="bt"><div class="control-icon">📶</div><h3>蓝牙设备</h3><p>扫描和管理远程蓝牙设备列表</p><div class="control-actions"><button class="ctrl-btn ctrl-btn-primary" onclick="sendControl('bt')">扫描设备</button></div><div class="control-status" id="status-bt"></div></div>
+    <div class="control-card glass-card" data-control="mouse"><div class="control-icon">🖱️</div><h3>键盘鼠标</h3><p>远程操控鼠标移动/点击、键盘输入、快捷键</p><div class="control-actions control-actions-grid"><button class="ctrl-btn ctrl-btn-secondary" onclick="sendControl('move',{x:500,y:300})">移动</button><button class="ctrl-btn ctrl-btn-secondary" onclick="sendControl('click',{x:500,y:300})">点击</button><button class="ctrl-btn ctrl-btn-primary" onclick="sendControl('type',{text:'Hello'})">输入</button><button class="ctrl-btn ctrl-btn-primary" onclick="sendControl('hotkey',{keys:'ctrl+c'})">Ctrl+C</button></div><div class="control-status" id="status-mouse"></div></div>
+    <div class="control-card glass-card" data-control="proc"><div class="control-icon">⚙️</div><h3>进程管理</h3><p>查看和控制远程进程、窗口聚焦</p><div class="control-actions"><button class="ctrl-btn ctrl-btn-secondary" onclick="sendControl('proc',{filter:''})">进程列表</button><button class="ctrl-btn ctrl-btn-primary" onclick="sendControl('sys')">系统信息</button></div><div class="control-status" id="status-proc"></div></div>
+  </div>
+  <div class="control-log glass-card" id="controlLog"><div class="log-header"><span class="log-title">📋 操控日志</span><button class="log-clear" onclick="clearLog()">清空</button></div><div class="log-body" id="logBody"><div class="log-entry log-system">系统就绪 — 等待指令...</div></div></div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="section-header"><h2 class="section-title">💎 租赁方案</h2><p class="section-desc">灵活定价，按需选择，随时升级</p></div>
+  <div class="pricing-toggle"><span class="toggle-label">月付</span><label class="toggle-switch"><input type="checkbox" id="billingToggle"><span class="toggle-slider"></span></label><span class="toggle-label">年付 <span class="toggle-badge">省20%</span></span></div>
+  <div class="pricing-grid" id="pricingGrid"></div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-bg"></div>
+  <div class="contact-content">
+    <h2 class="contact-title">准备好升级你的开发体验了吗？</h2>
+    <p class="contact-desc">立即租用GBT小土豆全能开发者，一键获取17个AI能力</p>
+    <div class="contact-actions">
+      <a href="https://github.com/paysssk-creator" class="btn btn-primary btn-lg" target="_blank" rel="noopener">GitHub 联系 💬</a>
+      <a href="mailto:hello@gbtxiaotudou.com" class="btn btn-outline btn-lg">邮件咨询 📧</a>
+    </div>
+    <div class="contact-info"><span>🌐 gbtxiaotudou.com</span><span>📁 github.com/paysssk-creator</span></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand"><span class="logo-icon">🥔</span><span class="logo-text">GBT小土豆</span><p>全能开发者智能出租平台</p></div>
+    <div class="footer-links">
+      <div class="footer-col"><h4>产品</h4><a href="#control-panel">远程操控</a><a href="#ai-tools">AI工具集</a><a href="#pricing">定价</a></div>
+      <div class="footer-col"><h4>资源</h4><a href="#">文档</a><a href="#">API参考</a><a href="#">更新日志</a></div>
+      <div class="footer-col"><h4>联系</h4><a href="https://github.com/paysssk-creator" target="_blank" rel="noopener">GitHub</a><a href="mailto:hello@gbtxiaotudou.com">邮件</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 GBTxiaotudou. All rights reserved. Built with ❤️</p></div>
+</footer>
+
+<div class="toast-container" id="toastContainer"></div>
+<script src="app.js"></script>
+</body>
+</html>
